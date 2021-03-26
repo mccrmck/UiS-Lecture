@@ -40,6 +40,9 @@ Pdef(\grainer,
 Pdef(\grainer).fadeTime = nil
 Pdef(\grainer).stop
 
+
+Score
+
 /* --- Electronic music examples --- */
 
 // https://open.spotify.com/playlist/1iBVxZhOmewbgd7ekHr51J?si=d5995c637eb24b9e
@@ -66,3 +69,5 @@ Pdef(\grainer).stop
 // scsynth.org
 // https://www.facebook.com/groups/supercollider/
 // https://github.com/MccormickMike/UiS-Lecture
+
+
