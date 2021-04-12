@@ -18,18 +18,19 @@ SynthDef(\grainPlayback,{
 )
 
 
-Synth(\grainPlayback,[\bufnum,~violin,\grainDur,0.01,\pos,0.45])
+Synth(\grainPlayback,[\bufnum,~violin,\grainDur,0.1,\pos,0.45])
 
 
 (
 Pdef(\grainer,
 	Pbind(
-		\instrument, \default,
-		\dur, Pseq([1/8],inf),
-		\note,Pwrand([0,2,5,8],[0.4,0.2,0.2,0.2],inf),
-		\legato,0.1,
-		\amp,0.2,
-		\tempo,60/60,
+		\instrument, \grainPlayback,
+		\dur, Pseq([0.1],inf),
+		\bufnum, ~violin,
+		\grainDur,0.4,
+		\pos,Pseries(0.02,0.0003,inf) + Pwhite(0.0001,0.0003,inf),
+		\rate,Pseq([[2,1,0.5,0.25]],inf) * Pwhite(0.99,1.001,inf),
+		\amp,0.1,
 		\pan, 0,
 		\outBus,0
 	)
@@ -37,7 +38,7 @@ Pdef(\grainer,
 )
 
 
-Pdef(\grainer).fadeTime = nil
+Pdef(\grainer).fadeTime = 4
 Pdef(\grainer).stop
 
 
