@@ -20,18 +20,20 @@ SynthDef(\grainPlayback,{
 
 Synth(\grainPlayback,[\bufnum,~violin,\grainDur,0.1,\pos,0.45])
 
+b.play
+
 
 (
 Pdef(\grainer,
 	Pbind(
 		\instrument, \grainPlayback,
-		\dur, Pseq([0.1],inf),
+		\dur, Pseq([0.05],inf),
 		\bufnum, ~violin,
-		\grainDur,0.4,
-		\pos,Pseries(0.02,0.0003,inf) + Pwhite(0.0001,0.0003,inf),
-		\rate,Pseq([[2,1,0.5,0.25]],inf) * Pwhite(0.99,1.001,inf),
-		\amp,0.1,
-		\pan, 0,
+		\grainDur,0.6,
+		\pos,Pseries(0.4,0.0002,inf) + Pwhite(0.0001,0.003,inf),
+		\rate,Pseq([[0.25,0.5,1,2]],inf),
+		\amp,0.5,
+		\pan,0,
 		\outBus,0
 	)
 ).play
